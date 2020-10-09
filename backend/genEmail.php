@@ -76,7 +76,7 @@ $gen_id = "REQ20201006173304";
   $headers .= "Content-Type: text/html; charset=ISO-8859-1";
 
   if ($name == $requestor) {
-   $message = "Good day ".$firstName.",\n\nPlease note you have successfully initiated a request in iApprove with \n\nID: ".$gen_id.", \nSubject: ".$reference."\nYour Role: Requestor, \n\nKindly click this link https://nmbziapprove.nmbz.co.zw/production/gen_view.php?genId=".$gen_id."&sender=".$requestor." to open it. \n\nRegards. \n[iApprove Automatic Notifications]";
+   $message = "Good day ".$firstName.",\n\nPlease note you have successfully initiated a request in iApprove with \n\nID: ".$gen_id.", \nSubject: ".$reference."\nYour Role: Requestor, \n\nKindly click this link https://localhost/production/gen_view.php?genId=".$gen_id."&sender=".$requestor." to open it. \n\nRegards. \n[iApprove Automatic Notifications]";
 
   //   $url = "http://localhost:9411/v1/rest/iso/secured/mail?to=".$to."&text=".urlencode($message)."&subject=".urlencode($subject);
         
@@ -101,7 +101,7 @@ $gen_id = "REQ20201006173304";
   }
 
   elseif ($name == $recipient) {
-   $message = "Good day ".$firstName.",\n\nKind note that ".$requestor." have initiated a change control with the details below in iApprove \n\nID: ".$gen_id.", \nSubject: ".$reference."\nYour Role: Implementor, \n\nPrior to this, you shall receive another email notification when it's ready for implementation. After that kindly give implementation feedback by changing status to either implementing or implemented basing on the status of the request. To open the reqest, click this link https://nmbziapprove.nmbz.co.zw/production/gen_view.php?genId=".$gen_id."&sender=".$requestor.".\n\n Also may you give implementation feedback for all the requests you have received from the past, this will help in tracking progress \n\nRegards. \n[iApprove Automatic Notifications]";
+   $message = "Good day ".$firstName.",\n\nKind note that ".$requestor." have initiated a change control with the details below in iApprove \n\nID: ".$gen_id.", \nSubject: ".$reference."\nYour Role: Implementor, \n\nPrior to this, you shall receive another email notification when it's ready for implementation. After that kindly give implementation feedback by changing status to either implementing or implemented basing on the status of the request. To open the reqest, click this link https://localhost/production/gen_view.php?genId=".$gen_id."&sender=".$requestor.".\n\n Also may you give implementation feedback for all the requests you have received from the past, this will help in tracking progress \n\nRegards. \n[iApprove Automatic Notifications]";
 
   //   $url = "http://localhost:9411/v1/rest/iso/secured/mail?to=".$to."&text=".urlencode($message)."&subject=".urlencode($subject);
         
@@ -125,7 +125,7 @@ $gen_id = "REQ20201006173304";
   }
 
   else{
-     $message = "Good day ".$firstName.",\n\nPlease note you have received a request  from ".$requestor." in iApprove with \n\nID: ".$gen_id.", \nSubject: ".$reference."\nYour Role: Approver, \n\nKindly click this link https://nmbziapprove.nmbz.co.zw/production/gen_view.php?genId=".$gen_id."&sender=".$requestor." to open and approve the request. \n\nRegards. \n[iApprove Automatic Notifications]";
+     $message = "Good day ".$firstName.",\n\nPlease note you have received a request  from ".$requestor." in iApprove with \n\nID: ".$gen_id.", \nSubject: ".$reference."\nYour Role: Approver, \n\nKindly click this link https://localhost/production/gen_view.php?genId=".$gen_id."&sender=".$requestor." to open and approve the request. \n\nRegards. \n[iApprove Automatic Notifications]";
 
   //    $url = "http://localhost:9411/v1/rest/iso/secured/mail?to=".$to."&text=".urlencode($message)."&subject=".urlencode($subject);
         

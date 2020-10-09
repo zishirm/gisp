@@ -1,5 +1,5 @@
 <div class="logo"><a href="http://www.gisp.gov.zw/index.php/en/" class="simple-text logo-normal">
-          <img src="..\assets\img\gisp_logo.jpg" alt="gisp logo" style="width:140px; height:70px;"><br>GISP
+          <img src="..\..\assets\img\gisp_logo.jpg" alt="gisp logo" style="width:140px; height:70px;"><br>GISP
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -10,7 +10,7 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./user.php">
+            <a class="nav-link" href="../user.php">
               <i class="material-icons">person</i>
               <p>User Profile</p>
             </a>
@@ -21,9 +21,9 @@
               <p>Generate</p>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" onclick="window.location.href = 'forms/form1.php';">Leave Application</a>
-                <a class="dropdown-item" onclick="window.location.href = 'forms/form1.php';">Procurement Request</a>
-                <a class="dropdown-item" onclick="window.location.href = 'forms/form1.php';">Request Document</a>
+                <a class="dropdown-item" onclick="window.location.href = 'form1.php';">Leave Application</a>
+                <a class="dropdown-item" onclick="window.location.href = 'form1.php';">Procurement Request</a>
+                <a class="dropdown-item" onclick="window.location.href = 'form1.php';">Request Document</a>
              </div>
           </li>
           <li>

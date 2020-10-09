@@ -217,37 +217,11 @@
                           </thead>
                         <tbody>
 
-                            <?php for($i=0; $i<5; $i++){ ?>
-                          <tr>
-                            <td>
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" value="" checked>
-                                  <span class="form-check-sign">
-                                    <span class="check"></span>
-                                  </span>
-                                </label>
-                              </div>
-                            </td>
-                            <td>GISP202002535625</td>
-                            <td>John Doe</td>
-                            <td>Sign contract for "What are conference organizers afraid of?"</td>
-                            <td><div class="progress">
-                              <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                                 aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                70%
-                              </div>
-                            </div>
-                            </td>
-                            <td>2020-09-12 <br>13:32:22</td>
-                            <td>HIGH</td>
-                            <td class="td-actions text-right">
-                                <button type="button" rel="tooltip" title="Remove" class="btn btn-primary btn-link btn-sm">
-                                    <i class="material-icons">more_vert</i>
-                                </button>
-                            </td>
-                          </tr>
-                         <?php } ?>
+                            <?php 
+                              
+                              include "tables/genReqTable.php";
+                              
+                               ?>
                         </tbody>
                       </table>
                     </div>

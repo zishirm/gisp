@@ -133,7 +133,7 @@ include '../../backend/profile_control.php';
         Tip 2: you can also add an image using data-image tag
     -->
       <?php
-    include "../sidebar.php";
+    include "sidebar.php";
 
     ?>
     </div>
@@ -829,9 +829,9 @@ include '../../backend/profile_control.php';
                         <tr><h3  style="text-align: center;">Implementation</h3></tr>
                         <table class="table table-bordered">
                           <thead>
-                            <th class="col-md-4 col-sm-4">Name</th>
-                            <th class="col-md-4 col-sm-4">Status</th>
-                            <th class="col-md-4 col-sm-4">Date</th>
+                            <th style = "width:30%">Name</th>
+                            <th style = "width:30%">Status</th>
+                            <th style = "width:30%">Date</th>
                           </thead>
                           <tbody>
 

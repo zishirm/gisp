@@ -102,7 +102,7 @@ function fill_event3_list($conn)
         Tip 2: you can also add an image using data-image tag
     -->
       <?php
-    include "../sidebar.php";
+    include "sidebar.php";
 
     ?>
     </div>
