@@ -4,6 +4,7 @@
 
 include '../../backend/db_connect.php';
 include '../../backend/profile_control.php';
+include '../../backend/session_manager.php';
 //include '../../../iapprove/production/message_handler.php';
 
 
@@ -230,7 +231,13 @@ function fill_event3_list($conn)
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
                           <div class="col-md-5 col-sm-6 col-xs-12 form-group has-feedback">
-                            <input name="department" type="text" class="form-control has-feedback-left" id="inputSuccess3"  placeholder = "Department">
+                            <!-- <input name="department" type="text" class="form-control has-feedback-left" id="inputSuccess3"  placeholder = "Department"> -->
+                            <select class="form-control" style = " min-height:33px;" name = "department">
+                              <option>Select Department</option>
+                              <option>e-government</option>
+                              <option>Internet Systems</option>
+                              <option>Cyber security</option>
+                            </select>
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                           </div>
                         </div>

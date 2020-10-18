@@ -162,18 +162,25 @@ The above copyright notice and this permission notice shall be included in all c
                         <div class="form-group">
                           <select name = "department" class="form-control">
                             <option>Select Department</option>
-                            <option>1</option>
-                            <option>1</option>
+                            <option>Internet Systems</option>
+                            <option>e-governmnet</option>
+                            <option>Cyber Security</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-md-8">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Jobtitle</label>
-                          <input name = "job_title" type="text" class="form-control">
+                       
+                            <label class="bmd-label-floating">Jobtitle</label>
+                            <input name = "job_title" type="text" class="form-control">
+                          </div>
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Password</label>
+                            <input name = "password" type="password" class="form-control">
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    
                     <button type="submit" class="btn btn-primary pull-right">Submit</button>
                     <div class="clearfix"></div>
                   </form>
@@ -189,9 +196,9 @@ The above copyright notice and this permission notice shall be included in all c
                 </div>
                 <div class="card-body">
                   <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                  <h4 class="card-title">Jonh Doe</h4>
+                  <h4 class="card-title"><?php echo $fullname; ?></h4>
                   <p class="card-description">
-                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                    <!-- Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is... -->
                   </p>
                   <a href="javascript:;" class="btn btn-primary btn-round">Follow</a>
                 </div>
