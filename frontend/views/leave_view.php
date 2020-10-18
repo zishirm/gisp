@@ -28,7 +28,9 @@ include '../../backend/profile_control.php';
       while($row = $result->fetch_assoc()) {
          $requestor = $row["requestor"];
          $req_date = $row["req_time"];
-         $impact_analysis = $row["impact_analysis"];
+         $date = $row["employee_number"];
+         $employee_number = $row["employee_number"];
+         $employee_number = $row["employee_number"];
          $req_justification = $row["req_justification"];
          $attachment = $row["attachment"];
          //$sender = $row["sender"];
