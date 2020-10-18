@@ -21,7 +21,7 @@
               <p>Generate</p>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" onclick="window.location.href = 'form1.php';">Leave Application</a>
+                <a class="dropdown-item" onclick="window.location.href = 'leave_form.php';">Leave Application</a>
                 <a class="dropdown-item" onclick="window.location.href = 'form1.php';">Procurement Request</a>
                 <a class="dropdown-item" onclick="window.location.href = 'form1.php';">Request Document</a>
              </div>
