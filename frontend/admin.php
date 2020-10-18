@@ -121,19 +121,19 @@ The above copyright notice and this permission notice shall be included in all c
                   <p class="card-category"><small>Fill the Form and Submit</small></p>
                 </div>
                 <div class="card-body">
-                  <form>
+                  <form method = "POST" action ="../backend/user_insert.php">
                     
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Fist Name</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name ="first_name" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Last Name</label>
-                          <input type="text" class="form-control">
+                          <input type="text" name ="surname" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -141,26 +141,26 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">Office Adress</label>
-                          <input type="text" class="form-control">
+                          <input name="address" type="text" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-2">
                         <div class="form-group">
                           <label class="bmd-label-floating">Tel Ext</label>
-                          <input type="text" class="form-control">
+                          <input name = "office_extension" type="text" class="form-control">
                         </div>
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email Adress</label>
-                          <input type="text" class="form-control">
+                          <input name = "email" type="text" class="form-control">
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                          <select class="form-control">
+                          <select name = "department" class="form-control">
                             <option>Select Department</option>
                             <option>1</option>
                             <option>1</option>
@@ -170,7 +170,7 @@ The above copyright notice and this permission notice shall be included in all c
                       <div class="col-md-8">
                         <div class="form-group">
                           <label class="bmd-label-floating">Jobtitle</label>
-                          <input type="text" class="form-control">
+                          <input name = "job_title" type="text" class="form-control">
                         </div>
                       </div>
                     </div>
