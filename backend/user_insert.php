@@ -33,7 +33,7 @@ $sql = "INSERT INTO users (firstname, middlename, lastname, fullname, initials, 
     ?>
         <script type="text/javascript">
         alert("User successfully Added!");
-        window.location.href = "../frontend/dashboard_developer.php";
+        window.location.href = "../frontend/dashboard.php";
         </script>
     <?php
 
