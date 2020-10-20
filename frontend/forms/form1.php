@@ -17,7 +17,7 @@ error_reporting(0);
 session_start();
 ob_start();
 
-$conn = new PDO('mysql:host=localhost;dbname=iapprove', 'root', 'P@55w0rd');
+$conn = new PDO('mysql:host=localhost;dbname=gisp', 'root', 'P@55w0rd');
 
  function fill_event1_list($conn)
 {
