@@ -298,14 +298,14 @@ $sql1 = "INSERT INTO lev_authorisation (lev_id,  auth1_name, auth1_jobtitle, aut
     if ($insertReq === TRUE && $insertGenAuth === TRUE) {
    // echo "New record created successfully with refNumber "."<br>".$refNumber;
 
-        include 'genEmail.php';
+        include 'lev_email.php';
 
         include $_SERVER['DOCUMENT_ROOT']."/production/audit/dataManipulation/genInsert.php";
 
 ?>
  <script type="text/javascript">
-   window.location.href = "../dashboard.php";
- alert("Change Control sent");
+   window.location.href = "../frontend/dashboard.php";
+ alert("Leave application Successfully sent");
 
  </script>
 <?php

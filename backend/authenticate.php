@@ -13,12 +13,13 @@ else{
     $myPass = $_POST['password'];
 }
 
+
 if(strlen($username)<3){
     include 'session_manager.php';
 }
 
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-if ($stmt = $conn->prepare('SELECT user_id, password, user_type FROM users WHERE username = ?')) {
+if ($stmt = $conn->prepare('SELECT user_id, password, user_type FROM users WHERE email = ?')) {
     // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
     $stmt->bind_param('s', $username);
     $stmt->execute();
@@ -40,7 +41,9 @@ if ($stmt->num_rows > 0) {
         // Create sessions so we know the user is logged in, they basically act like cookies but remember the data on the server.
         session_regenerate_id();
         $_SESSION['loggedin'] = TRUE;
+        $username = str_replace("@gmail.com", "", $username);
         $_SESSION['username'] = $username;
+
         $_SESSION['user_id'] = $id;
 
         //include $_SERVER['DOCUMENT_ROOT']."/production/audit/login.php";
