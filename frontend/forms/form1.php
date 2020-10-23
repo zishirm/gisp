@@ -8,7 +8,7 @@ include '../../backend/profile_control.php';
 
 
   /*Fetch All system users*/
-   $sql3 = "SELECT users.*, departments.name FROM users INNER JOIN departments ON users.department = departments.id WHERE 1 ORDER BY firstname ASC ";
+   $sql3 = "SELECT * FROM users WHERE 1 ORDER BY firstname ASC ";
    $Allusers = $conn->query($sql3);
   
 
@@ -19,16 +19,32 @@ ob_start();
 
 $conn = new PDO('mysql:host=localhost;dbname=gisp', 'root', 'P@55w0rd');
 
- function fill_event1_list($conn)
+function fill_event1_list($conn)
 {
-  $querys = "SELECT Distinct fullname FROM users ORDER BY fullname ASC";
+  $querys = "SELECT  * FROM users WHERE  jobtitle='Supervisor' OR jobtitle ='Deputy Head' OR jobtitle='Head GISP' ORDER BY fullname ASC";
   $statements = $conn->prepare($querys);
   $statements->execute();
   $results = $statements->fetchAll();
   $output = '';
   foreach($results as $row)
   {
-    $output .= '<option value="'.$row["fullname"].'">'.$row["fullname"].'</option>';
+    $output .= '<option value="'.$row["fullname"].'">'.$row["jobtitle"]." -> ".$row["fullname"].'</option>';
+  }
+  return $output;
+    
+}
+
+
+function myUsers($conn)
+{
+  $querys = "SELECT  * FROM users WHERE  1 ORDER BY fullname ASC";
+  $statements = $conn->prepare($querys);
+  $statements->execute();
+  $results = $statements->fetchAll();
+  $output = '';
+  foreach($results as $row)
+  {
+    $output .= '<option value="'.$row["fullname"].'">'.$row["jobtitle"]." -> ".$row["fullname"].'</option>';
   }
   return $output;
     
@@ -198,7 +214,7 @@ function fill_event3_list($conn)
                 <form enctype="multipart/form-data" id="demo-form2" data-parsley-validate="" action="../../backend/generic_insert.php" method="POST" style="border: double; 2px #CDCDCD; width:110%;" class="form-horizontal dropzone form-label-left" novalidate="" >
                       <div >
                         <img style="margin-left: 38%; margin-top:30px; height: 112px;" src="..\..\assets\img\gisp_logo.jpg" alt="logo">
-                        <h3 style="text-align: center;">Leave application</h3>
+                        <h3 style="text-align: center;">Procurement Request Form</h3>
                       </div>
                       <br>
 
@@ -223,8 +239,9 @@ function fill_event3_list($conn)
                       <h4 style="text-align: center;"><b>Request Details Section</b></h4>
                       <div class="form-group">
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Request Name: </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea class="form-control" rows="3" required="required" placeholder="Business Change Control" name="gen_name" style="margin: 0px 4.375px 0px 0px; height: 46px; width: 606px;"></textarea>
+                        <div class="col-md-7 col-sm-6 col-xs-12">
+                          <!-- <textarea class="form-control" rows="3" required="required" placeholder="Business Change Control" name="gen_name" style="margin: 0px 4.375px 0px 0px; height: 46px; width: 606px;"></textarea> -->
+                          <input type="text" name = "gen_name" readonly="readonly" value="Procurement Request" class = "form-control col-md-12" rows=""3/>
                         </div>
                       </div>
                       <div class="form-group">
@@ -234,14 +251,19 @@ function fill_event3_list($conn)
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Impact Analysis:  </label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Priority:  </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea class="form-control" rows="3" required="required" name="gen_impact_analysis" style="margin: 0px 4.375px 0px 0px; height: 46px; width: 606px;"></textarea>
+                          <!-- <textarea class="form-control" rows="3" required="required" name="gen_impact_analysis" style="margin: 0px 4.375px 0px 0px; height: 46px; width: 606px;"></textarea> -->
+                          <select class="form-control" rows="3" required="required" name="gen_impact_analysis" style="margin: 0px 4.375px 0px 0px; height: 46px; width: 606px;">
+                            <option>Select One</option>
+                            <option>Urgent</option>
+                            <option>Normal</option>
+                          </select>
                         </div>
                       </div>
                       
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Request Justification: </label>
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Explanation:<br><small>(OPTIONAL)</small> </label>
                         <div class="col-md-7 col-sm-6 col-xs-12">
                           <textarea class="ckeditor col-md-7 col-sm-6 col-xs-12" id="details" name="req_justification" cols="100" rows="10" required></textarea>  
                             </div>
@@ -289,10 +311,10 @@ function fill_event3_list($conn)
                                           <div class="row">
                                             <div class="col-md-12">
                                               <div class="form-group">
-                                                <label>Fullname</label>
+                                                <label>Fill The Fields</label>
                                                 <select class="form-control  has-feedback-left" style="height:35px;" name="0" id="fullname2">
                                                   <option>Assign To</option>
-                                                  <option value="">Select Event Type</option>
+                                                  <!-- <option value="">Select Event Type</option> -->
                                                     <?php echo fill_event1_list($conn);?>
                                                 </select>
                                                 </div>
@@ -319,7 +341,7 @@ function fill_event3_list($conn)
                              <select class="form-control  has-feedback-left" name="Implementer1" style="height:35px;" id="ImplementerName">
                                                   <option>Assign To</option>
                                                   <option value="">Select Event Type</option>
-                                                    <?php echo fill_event1_list($conn);?>
+                                                    <?php echo myUsers($conn);?>
                                                 </select>
                           </div>
                         </div>
