@@ -1,7 +1,7 @@
 
                       <?php 
                         //    include '../backend/db_connect.php'; 
-                            $fetchOne = "SELECT procurement_req.*, procurement_auth.* FROM `procurement_req` JOIN procurement_auth ON  procurement_req.proc_id=procurement_auth.proc_id";
+                            $fetchOne = "SELECT procurement_req.*, procurement_auth.* FROM `procurement_req` JOIN procurement_auth ON  procurement_req.proc_id=procurement_auth.proc_id WHERE totalAuth>authCount";
                             $myResult = mysqli_query($conn,$fetchOne);
 
                             // $fullname = "Clive Chiwara";

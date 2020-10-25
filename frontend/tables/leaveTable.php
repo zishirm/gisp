@@ -1,6 +1,6 @@
 
                       <?php 
-                            $fetchOne = "SELECT lev_app.*, lev_authorisation.* FROM `lev_app` JOIN lev_authorisation ON  lev_app.lev_id=lev_authorisation.lev_id";
+                            $fetchOne = "SELECT lev_app.*, lev_authorisation.* FROM `lev_app` JOIN lev_authorisation ON  lev_app.lev_id=lev_authorisation.lev_id  WHERE totalAuth>authCount";
                             $myResult = mysqli_query($conn,$fetchOne);
 
                             // $fullname = "Clive Chiwara";

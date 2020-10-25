@@ -1,18 +1,17 @@
 
                       <?php 
-                           include '../backend/db_connect.php'; 
-                            $fetchOne = "SELECT generic_request.*, generic_auth.* FROM `generic_request` JOIN generic_auth ON  generic_request.gen_id=generic_auth.gen_id WHERE totalAuth>authCount";
+                            $fetchOne = "SELECT lev_app.*, lev_authorisation.* FROM `lev_app` JOIN lev_authorisation ON  lev_app.lev_id=lev_authorisation.lev_id WHERE totalAuth=authCount";
                             $myResult = mysqli_query($conn,$fetchOne);
 
                             // $fullname = "Clive Chiwara";
                             if ($myResult->num_rows > 0) {
                              while ($row = mysqli_fetch_assoc($myResult)) {
 
-                                    $refNumber  = $row['gen_id'];
-                                    //$refNumber;  = $row['gen_id'];
-                                    $dateSent  = $row['req_date'];
+                                    $refNumber  = $row['lev_id'];
+                                    //$refNumber;  = $row['lev_id'];
+                                    $dateSent  = $row['req_time'];
                                     //$projectName  = $row['projectName'];
-                                    $sender  = $row['gen_requestor'];
+                                    $sender  = $row['requestor'];
                                     $auth1_name  = $row['auth1_name'];
                                     $auth2_name  = $row['auth2_name'];
                                     $auth3_name  = $row['auth3_name'];
@@ -62,7 +61,7 @@
                                     $implementer  = $row['implementer_name'];
                                    
                                     $authCount =$row['authCount'];
-                                    $gen_name =$row['gen_name'];
+                                    $gen_name =$sender."'s Leave Application";
                                     $recipient = $row['implementer_name'];
                                     $percen = ($authCount/$row['totalAuth'])*100;
 
@@ -88,18 +87,13 @@
                                <td><?php echo $sender;  ?></td>
                                <td><p class=""><?php echo $gen_name; ?></p></td>
                                <td>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                                        aria-valuemin="0" aria-valuemax="100" style="background-color:<?php if($percen<35){ echo "red";} elseif($percen>=35 && $percen<70){ echo "blue"; } else{echo "green";} ?>; width:<?php echo $percen; ?>%;">
-                                        <?php echo round($percen); ?>
-                                    </div>
-                                </div>
+                               AUTHORIZED
                                 </td>
-                               <td><?php echo "Gen Request"; ?><br><small>Created <br><?php  echo $dateSent; ?></small><br></td>
+                               <td><?php echo "Leave Application"; ?><br><small>Created <br><?php  echo $dateSent; ?></small><br></td>
                                
                                <td>HIGH</td>
                                <td class="">
-                                    <a href="views/gen_view.php?genId=<?php echo $refNumber ?>&sender=<?php echo $sender ?>">OPEN</a> 
+                                    <a href="views/leave_view.php?genId=<?php echo $refNumber ?>&sender=<?php echo $sender ?>">OPEN</a> 
                                     
                                 </td>
                               
@@ -109,7 +103,7 @@
 
                                <?php
                                //include 'modal.php';
-                                 }
-                            //  }
+                                //  }
+                             }
                            }
                          

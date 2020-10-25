@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<?php
+error_reporting(0);
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -227,32 +230,13 @@
                               <th><strong>action</strong></th>
                           </thead>
                         <tbody>
-
-                            <?php for($i=0; $i<5; $i++){ ?>
-                          <tr>
-                            <td>
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" value="" checked>
-                                  <span class="form-check-sign">
-                                    <span class="check"></span>
-                                  </span>
-                                </label>
-                              </div>
-                            </td>
-                            <td>GISP202002535625</td>
-                            <td>John Doe</td>
-                            <td>Sign contract for "What are conference organizers afraid of?"</td>
-                            <td><button type="button" class="btn btn-primary">Authorized</button></td>
-                            <td>2020-09-12 <br>13:32:22</td>
-                            <td>HIGH</td>
-                            <td class="td-actions text-right">
-                                <button type="button" rel="tooltip" title="Remove" class="btn btn-primary btn-link btn-sm">
-                                    <i class="material-icons">more_vert</i>
-                                </button>
-                            </td>
-                          </tr>
-                         <?php } ?>
+                        <?php 
+                              
+                              include "authorized/genReqTable.php";
+                              include "authorized/leaveTable.php";
+                              include "authorized/procurementTable.php";
+                              
+                               ?>
                         </tbody>
                       </table>
                     </div>
@@ -270,31 +254,13 @@
                           </thead>
                         <tbody>
 
-                            <?php for($i=0; $i<5; $i++){ ?>
-                          <tr>
-                            <td>
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" value="" checked>
-                                  <span class="form-check-sign">
-                                    <span class="check"></span>
-                                  </span>
-                                </label>
-                              </div>
-                            </td>
-                            <td>GISP202002535625</td>
-                            <td>John Doe</td>
-                            <td>Sign contract for "What are conference organizers afraid of?"</td>
-                            <td><button type="button" class="btn btn-primary btn-xs" style= "font-size:10px;">Implemented</button></td>
-                            <td>2020-09-12 <br>13:32:22</td>
-                            <td>HIGH</td>
-                            <td class="td-actions text-right">
-                                <button type="button" rel="tooltip" title="Remove" class="btn btn-primary btn-link btn-sm">
-                                    <i class="material-icons">more_vert</i>
-                                </button>
-                            </td>
-                          </tr>
-                         <?php } ?>
+                        <?php 
+                              
+                              include "implemented/genReqTable.php";
+                              include "implemented/leaveTable.php";
+                              include "implemented/procurementTable.php";
+                              
+                         ?>
                         </tbody>
                       </table>
                     </div>
