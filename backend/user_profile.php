@@ -1,6 +1,20 @@
-﻿<?php
-error_reporting(0);
+<?php 
+include "profile_control.php";
+if (!$email = $_GET['email']) {
+  //    $RequestCode ="gen29022020143303";
+  session_start();
+      echo $email =$_SESSION['username'];
+      
+    } else
+    {
+    $email = $_GET['email'];
+    $about = $_GET['about'];
+    }
+
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +24,7 @@ error_reporting(0);
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Dashboard
+    GISP| User Profile
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -30,17 +44,19 @@ error_reporting(0);
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <?php
-    include "sidebar.php";
-
-    ?>
+     
+     <?php 
+    include "../frontend/sidebar.php";
+    include "db_connect.php";
+     ?>
+      
     </div>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+            <a class="navbar-brand" href="javascript:;">User Profile</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -91,10 +107,10 @@ error_reporting(0);
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="../backend/user_profile.php">Profile</a>
-                  <a class="dropdown-item" href="../backend/user_edit.php">Settings</a>
+                  <a class="dropdown-item" href="#">Profile</a>
+                  <a class="dropdown-item" href="#">Settings</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="../backend/logout.php">Log out</a>
+                  <a class="dropdown-item" href="#">Log out</a>
                 </div>
               </li>
             </ul>
@@ -105,166 +121,127 @@ error_reporting(0);
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">table_chart</i>
-                  </div>
-                  <p class="card-category"><u>Reports</u></p>
-                  <h3 class="card-title">42350
-                  <small></small>
-                  </h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons text-danger">success</i>
-                    <a href="javascript:;">Total requests Generated</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-success card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">add_task</i>
-                  </div>
-                  <p class="card-category"> Add New</p>
-                  <p class="card-title">Request</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <!-- <i class="material-icons">date_range</i> Last 24 Hours -->
-                    <div class="col-md-5" style="text-align:center;"><i class ="fa fa-plus-square"> </i> <a href="forms/leave_form.php">Leave Application</a></div>|
-                    <div class="col-md-5" style="text-align:center;"><i class ="fa fa-plus"> </i> <a href="forms/procurement_request.php">Procurement Request</a></div>|
-                    <div class="col-md-5" style="text-align:center;"><i class ="fa fa-plus-square-o"> </i> <a href="forms/generic_request.php">General Request</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
-                  <div class="card-icon">
-                    <i class="fa fa-warning"></i>
-                  </div>
-                  <p class="card-category">Overdue</p>
-                  <h3 class="card-title">+245</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">update</i> Just Updated
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class=" col-md-12">
+            <div class="col-md-8">
               <div class="card">
-                <div class="card-header card-header-tabs card-header-primary">
-                  <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-                      <span class="nav-tabs-title">Categories:</span>
-                      <ul class="nav nav-tabs" data-tabs="tabs">
-                        <li class="nav-item">
-                          <a class="nav-link active" href="#profile" data-toggle="tab">
-                            <i class="material-icons">autorenew</i> Circulating
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#messages" data-toggle="tab">
-                            <i class="material-icons">done</i> Authorized
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#settings" data-toggle="tab">
-                            <i class="material-icons">done_all</i> Implemented
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">My Profile</h4>
+                  <p class="card-category">Complete Profile</p>
                 </div>
                 <div class="card-body">
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="profile">
-                      <table class="table">
-                          <thead>
-                              <th></th>
-                              <th><strong>Request ID</strong></th>
-                              <th><strong>Requestor</strong></th>
-                              <th><strong>Subject</strong></th>
-                              <th><strong>Progress</strong></th>
-                              <th><strong>Date</strong></th>
-                              <th><strong>Priority</strong></th>
-                              <th><strong>action</strong></th>
-                          </thead>
-                        <tbody>
+                  <form>
+                  <?php 
+                   $fetchOne = "SELECT * FROM users WHERE username = '$uname'";
+                   $myResult = mysqli_query($conn,$fetchOne);
 
-                            <?php 
-                              
-                              include "tables/genReqTable.php";
-                              include "tables/leaveTable.php";
-                              include "tables/procurementTable.php";
-                              
-                               ?>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="tab-pane" id="messages">
-                      <table class="table">
-                          <thead>
-                              <th></th>
-                              <th><strong>Request ID</strong></th>
-                              <th><strong>Requestor</strong></th>
-                              <th><strong>Subject</strong></th>
-                              <th><strong>Status</strong></th>
-                              <th><strong>Date</strong></th>
-                              <th><strong>Priority</strong></th>
-                              <th><strong>action</strong></th>
-                          </thead>
-                        <tbody>
-                        <?php 
-                              
-                              include "authorized/genReqTable.php";
-                              include "authorized/leaveTable.php";
-                              include "authorized/procurementTable.php";
-                              
-                               ?>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="tab-pane" id="settings">
-                      <table class="table">
-                          <thead>
-                              <th></th>
-                              <th><strong>Request ID</strong></th>
-                              <th><strong>Requestor</strong></th>
-                              <th><strong>Subject</strong></th>
-                              <th><strong>Status</strong></th>
-                              <th><strong>Date</strong></th>
-                              <th><strong>Priority</strong></th>
-                              <th><strong>action</strong></th>
-                          </thead>
-                        <tbody>
+                   // $fullname = "Clive Chiwara";
+                   if ($myResult->num_rows > 0) {
+                    while ($row = mysqli_fetch_assoc($myResult)) {
 
-                        <?php 
-                              
-                              include "implemented/genReqTable.php";
-                              include "implemented/leaveTable.php";
-                              include "implemented/procurementTable.php";
-                              
-                         ?>
-                        </tbody>
-                      </table>
+                       $firstname  = $row['firstname'];
+                       $fullname  = $row['fullname'];
+                       $lastName  = $row['lastname'];
+                       $address  = $row['address'];
+                       $username  = $row['username'];
+                       $lastLogged  = $row['last_logged'];
+                       $email  = $row['email'];
+                       $jobtitle  = $row['jobtitle'];
+                       $regDate  = $row['date_of_registration'];
+                           
+
+                  ?>
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">GISP</label>
+                          <input type="text" class="form-control" disabled>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Username</label>
+                          <input type="text" value = "<?php echo $username; ?>" class="form-control"  disabled>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address</label>
+                          <input type="email" class="form-control"  value = "<?php echo $email; ?>" disabled>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Fist Name</label>
+                          <input type="text"  value = "<?php echo $firstname; ?>" class="form-control"  disabled>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Last Name</label>
+                          <input type="text"  value = "<?php echo $lastName; ?>"  class="form-control"  disabled>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Adress</label>
+                          <input type="text"  value = "<?php echo $address; ?>"  class="form-control"  disabled>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">City</label>
+                          <input type="text" value = "<?php echo "Harare"; ?>" class="form-control"  disabled>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Country</label>
+                          <input type="text"  value = "<?php echo "Zimbabwe"; ?>"  class="form-control"  disabled>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Postal Code</label>
+                          <input type="text" class="form-control"  value = "<?php echo "+263"; ?>"  disabled>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>About Me</label>
+                          <div class="form-group">
+                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                            <textarea class="form-control" rows="5" disabled></textarea >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <?php }} ?>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="javascript:;">
+                    <img class="img" src="../assets/img/faces/marc.jpg" />
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                  <h4 class="card-title">Jonh Doe</h4>
+                  <p class="card-description">
+                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                  </p>
+                  <a href="javascript:;" class="btn btn-primary btn-round">Follow</a>
                 </div>
               </div>
             </div>
@@ -313,12 +290,70 @@ error_reporting(0);
       <a href="#" data-toggle="dropdown">
         <i class="fa fa-cog fa-2x"> </i>
       </a>
-      
+      <ul class="dropdown-menu">
+        <li class="header-title"> Sidebar Filters</li>
+        <li class="adjustments-line">
+          <a href="javascript:void(0)" class="switch-trigger active-color">
+            <div class="badge-colors ml-auto mr-auto">
+              <span class="badge filter badge-purple" data-color="purple"></span>
+              <span class="badge filter badge-azure" data-color="azure"></span>
+              <span class="badge filter badge-green" data-color="green"></span>
+              <span class="badge filter badge-warning" data-color="orange"></span>
+              <span class="badge filter badge-danger" data-color="danger"></span>
+              <span class="badge filter badge-rose active" data-color="rose"></span>
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+        <li class="header-title">Images</li>
+        <li class="active">
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-1.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-2.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-3.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-4.jpg" alt="">
+          </a>
+        </li>
+        <li class="button-container">
+          <a href="localhonst" target="_blank" class="btn btn-primary btn-block">Free Download</a>
+        </li>
+        <!-- <li class="header-title">Want more components?</li>
+            <li class="button-container">
+                <a href="localhonst-pro" target="_blank" class="btn btn-warning btn-block">
+                  Get the pro version
+                </a>
+            </li> -->
+        <li class="button-container">
+          <a href="localhonst" target="_blank" class="btn btn-default btn-block">
+            View Documentation
+          </a>
+        </li>
+        <li class="button-container github-star">
+          <a class="github-button" href="https://github.com/couraget/gisp" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+        </li>
+        <li class="header-title">Thank you for 95 shares!</li>
+        <li class="button-container text-center">
+          <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
+          <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
+          <br>
+          <br>
+        </li>
+      </ul>
     </div>
   </div>
   <!--   Core JS Files   -->
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
@@ -530,13 +565,6 @@ error_reporting(0);
 
         });
       });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      md.initDashboardPageCharts();
-
     });
   </script>
 </body>

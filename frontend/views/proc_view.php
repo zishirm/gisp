@@ -2,7 +2,7 @@
 
 include '../../backend/profile_control.php';
 
-  // $RequestCode ="REQ20201024050958";
+  // $RequestCode ="REQ20201024061514";
   
    // $RequestCode ="gen2020021022";
     if (!$sender = $_GET['genId']) {
@@ -17,10 +17,8 @@ include '../../backend/profile_control.php';
   }
   $genRed = "genId={$RequestCode}&sender={$sender}";
 
-
-
   $tab = "&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-  $sql = "SELECT generic_request.*, generic_auth.* FROM generic_request JOIN generic_auth ON generic_request.gen_id = generic_auth.gen_id WHERE generic_request.gen_id = '$RequestCode'";
+  $sql = "SELECT procurement_req.*, procurement_auth.* FROM procurement_req JOIN procurement_auth ON procurement_req.proc_id = procurement_auth.proc_id WHERE procurement_req.proc_id = '$RequestCode'";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -287,7 +285,7 @@ include '../../backend/profile_control.php';
                     <div >
                     <img style="margin-left: 38%; margin-top:30px; height: 112px;" src="..\..\assets\img\gisp_logo.jpg" alt="logo">
                       <!-- <img style="margin-left: 42%; height: 112px;" src="images/nmb-logo.png" alt="logo"> -->
-                      <h3 style="text-align: center;">GENERIC CHANGE REQUEST</h3>
+                      <h3 style="text-align: center;">PROCUREMENT REQUEST FORM</h3>
                     </div>
 
                     <div class="x_title">
@@ -324,6 +322,10 @@ include '../../backend/profile_control.php';
                           <tr>
                             <td colspan="4" style="text-align:center; text-transform: uppercase;"><h4><b>Change Details Section</b></h4></td>
                           </tr>
+                             <td colspan="4"><b>Priority:</b> <br>
+                              <?php echo $impact_analysis; ?>
+                             </td>
+                          </tr>
                           <tr>
                              <td colspan="4"><b>Description of Request:</b> <br>
 
@@ -331,7 +333,8 @@ include '../../backend/profile_control.php';
                              </td>
                           </tr>
                           <tr>
-                             <td colspan="4"><b>Reason/Benefit for Changes:</b> <br>
+                          <tr>
+                             <td colspan="4"><b>Additional Explanation:</b> <br>
                               <?php echo $req_justification; ?>
                              </td>
                           </tr>
@@ -350,7 +353,7 @@ include '../../backend/profile_control.php';
                           
                               <?php
                               include '../../backend/db_connect.php';
-                              $fileQry  = $conn->query('SELECT * FROM gen_uploads WHERE gen_id="'.$RequestCode.'"');
+                              $fileQry  = $conn->query('SELECT * FROM gen_uploads WHERE proc_id="'.$RequestCode.'"');
                               if($fileQry->num_rows>0){
 
                                 ?>
@@ -884,8 +887,8 @@ include '../../backend/profile_control.php';
                         <?php 
                     if ($fullname = $implementerName) { ?>
 
-                                  <li><a href="/production/authorisation/genAuthorisation.php?gen_value=implementing&<?php echo $genRed; ?>">Pending Implementation</a></li>
-                                  <li><a href="/production/authorisation/genAuthorisation.php?gen_value=implemented&<?php echo $genRed; ?>">Implemented</a></li>
+                                  <li><a href="../../backend/authorisation/procAuthorisation.php?gen_value=implementing&<?php echo $genRed; ?>">Pending Implementation</a></li>
+                                  <li><a href="../../backend/authorisation/procAuthorisation.php?gen_value=implemented&<?php echo $genRed; ?>">Implemented</a></li>
                                   </ul></div>
                       <?php
                       
@@ -1234,7 +1237,7 @@ include '../../backend/profile_control.php';
         document.getElementById("approve").addEventListener("click", courageA);
       function courageA(){
         var weight = document.getElementById("approve").value;
-        window.location.href="../../backend/authorisation/genAuthorisation.php?gen_value="+weight+"&<?php echo $genRed; ?>";
+        window.location.href="../../backend/authorisation/procAuthorisation.php?gen_value="+weight+"&<?php echo $genRed; ?>";
       }
 
       /*Disapprove*/
@@ -1242,7 +1245,7 @@ include '../../backend/profile_control.php';
       document.getElementById("disapprove").addEventListener("click", courageD);
       function courageD(){
         var weight = document.getElementById("disapprove").value;
-        window.location.href="../../backend/authorisation/genAuthorisation.php?gen_value="+weight+"&<?php echo $genRed; ?>";
+        window.location.href="../../backend/authorisation/procAuthorisation.php?gen_value="+weight+"&<?php echo $genRed; ?>";
       }
 
       /*Wait*/
@@ -1250,7 +1253,7 @@ include '../../backend/profile_control.php';
       document.getElementById("wait").addEventListener("click", courage);
       function courage(){
         var weight = document.getElementById("wait").value;
-        window.location.href="../../backend/authorisation/genAuthorisation.php?gen_value="+weight+"&<?php echo $genRed; ?>";
+        window.location.href="../../backend/authorisation/procAuthorisation.php?gen_value="+weight+"&<?php echo $genRed; ?>";
       }
 
 

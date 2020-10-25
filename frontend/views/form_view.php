@@ -2,7 +2,7 @@
 
 include '../../backend/profile_control.php';
 
-  $RequestCode ="REQ20201006133529";
+  $RequestCode ="REQ20201024050958";
   
    // $RequestCode ="gen2020021022";
     if (!$sender = $_GET['genId']) {

@@ -9,7 +9,7 @@ include 'session_manager.php';
 include 'db_connect.php';
 
 $uname =$_SESSION["username"];
-echo $uname;
+
   $sql = "SELECT * FROM users WHERE username = '$uname'";
   $result = $conn->query($sql);
 

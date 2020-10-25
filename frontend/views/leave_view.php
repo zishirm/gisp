@@ -2,7 +2,7 @@
 
 include '../../backend/profile_control.php';
 
-  $RequestCode ="LEA20201018154204";
+  // $RequestCode ="LEA20201018154204";
   
    // $RequestCode ="gen2020021022";
     if (!$sender = $_GET['genId']) {
@@ -373,7 +373,7 @@ Social Security Number	275-84-5445  ]<br><small style = \"margin-left: 30px;\">0
                           
                               <?php
                               include '../../backend/db_connect.php';
-                              $fileQry  = $conn->query('SELECT * FROM gen_uploads WHERE gen_id="'.$RequestCode.'"');
+                              $fileQry  = $conn->query('SELECT * FROM lev_uploads WHERE lev_id="'.$RequestCode.'"');
                               if($fileQry->num_rows>0){
 
                                 ?>
@@ -911,8 +911,8 @@ Social Security Number	275-84-5445  ]<br><small style = \"margin-left: 30px;\">0
                         <?php 
                     if ($fullname = $implementerName) { ?>
 
-                                  <li><a href="/production/authorisation/genAuthorisation.php?gen_value=implementing&<?php echo $genRed; ?>">Pending Implementation</a></li>
-                                  <li><a href="/production/authorisation/genAuthorisation.php?gen_value=implemented&<?php echo $genRed; ?>">Implemented</a></li>
+                                  <li><a href="../../backend/authorisation/levAuthorisation.php?gen_value=implementing&<?php echo $genRed; ?>">Pending Implementation</a></li>
+                                  <li><a href="../../backend/authorisation/levAuthorisation.php?gen_value=implemented&<?php echo $genRed; ?>">Implemented</a></li>
                                   </ul></div>
                       <?php
                       
@@ -1257,6 +1257,41 @@ Social Security Number	275-84-5445  ]<br><small style = \"margin-left: 30px;\">0
 
     });
   </script>
+  <script type="text/javascript">
+        document.getElementById("approve").addEventListener("click", courageA);
+      function courageA(){
+        var weight = document.getElementById("approve").value;
+        window.location.href="../../backend/authorisation/levAuthorisation.php?gen_value="+weight+"&<?php echo $genRed; ?>";
+      }
+
+      /*Disapprove*/
+
+      document.getElementById("disapprove").addEventListener("click", courageD);
+      function courageD(){
+        var weight = document.getElementById("disapprove").value;
+        window.location.href="../../backend/authorisation/levAuthorisation.php?gen_value="+weight+"&<?php echo $genRed; ?>";
+      }
+
+      /*Wait*/
+//<a href="../../backend/authorisation/levAuthorisation.php?gen_value=wait&<?php //echo $genRed; ?>">Wait</a>
+      document.getElementById("wait").addEventListener("click", courage);
+      function courage(){
+        var weight = document.getElementById("wait").value;
+        window.location.href="../backend/authorisation/genAuthorisation.php?gen_value="+weight+"&<?php echo $genRed; ?>";
+      }
+
+
+
+
+      document.getElementById("close").addEventListener("click", close);
+      function close(){
+        window.location.href = "/production/dashboard_developer.php?elementId=asm";
+      }
+
+     // });
+      
+
+    </script>
 </body>
 
 </html>

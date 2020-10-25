@@ -1,15 +1,15 @@
 
                       <?php 
-                           include '../backend/db_connect.php'; 
-                            $fetchOne = "SELECT generic_request.*, generic_auth.* FROM `generic_request` JOIN generic_auth ON  generic_request.gen_id=generic_auth.gen_id WHERE totalAuth>authCount";
+                        //    include '../backend/db_connect.php'; 
+                            $fetchOne = "SELECT procurement_req.*, procurement_auth.* FROM `procurement_req` JOIN procurement_auth ON  procurement_req.proc_id=procurement_auth.proc_id WHERE totalAuth=authCount";
                             $myResult = mysqli_query($conn,$fetchOne);
 
                             // $fullname = "Clive Chiwara";
                             if ($myResult->num_rows > 0) {
                              while ($row = mysqli_fetch_assoc($myResult)) {
 
-                                    $refNumber  = $row['gen_id'];
-                                    //$refNumber;  = $row['gen_id'];
+                                    $refNumber  = $row['proc_id'];
+                                    //$refNumber;  = $row['proc_id'];
                                     $dateSent  = $row['req_date'];
                                     //$projectName  = $row['projectName'];
                                     $sender  = $row['gen_requestor'];
@@ -88,18 +88,13 @@
                                <td><?php echo $sender;  ?></td>
                                <td><p class=""><?php echo $gen_name; ?></p></td>
                                <td>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                                        aria-valuemin="0" aria-valuemax="100" style="background-color:<?php if($percen<35){ echo "red";} elseif($percen>=35 && $percen<70){ echo "blue"; } else{echo "green";} ?>; width:<?php echo $percen; ?>%;">
-                                        <?php echo round($percen); ?>
-                                    </div>
-                                </div>
+                                AUTHORIZED
                                 </td>
-                               <td><?php echo "Gen Request"; ?><br><small>Created <br><?php  echo $dateSent; ?></small><br></td>
+                               <td><?php echo "Procurement Request"; ?><br><small>Created <br><?php  echo $dateSent; ?></small><br></td>
                                
                                <td>HIGH</td>
-                               <td class="">
-                                    <a href="views/gen_view.php?genId=<?php echo $refNumber ?>&sender=<?php echo $sender ?>">OPEN</a> 
+                               <td class="" onclick="windows.location:views/form_view.php";>
+                                    <a href="views/proc_view.php?genId=<?php echo $refNumber ?>&sender=<?php echo $sender ?>">OPEN</a> 
                                     
                                 </td>
                               

@@ -10,9 +10,9 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./user.php">
+            <a class="nav-link" href="admin_dashboard.php">
               <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <p>Administration</p>
             </a>
           </li>
           <li class="nav-item" data-toggle="dropdown">
@@ -22,8 +22,8 @@
             </a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" onclick="window.location.href = 'forms/leave_form.php';">Leave Application</a>
-                <a class="dropdown-item" onclick="window.location.href = 'forms/form1.php';">Procurement Request</a>
-                <a class="dropdown-item" onclick="window.location.href = 'forms/form1.php';">Request Document</a>
+                <a class="dropdown-item" onclick="window.location.href = 'forms/procurement_request.php';">Procurement Request</a>
+                <a class="dropdown-item" onclick="window.location.href = 'forms/generic_request.php';">General Request</a>
              </div>
           </li>
           <li>

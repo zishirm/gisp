@@ -1,7 +1,6 @@
-  <?php 
+<?php 
 
-
-include 'db_connect.php';
+include '../../../iapprove/production/db_connect.php';
 include 'profile_control.php';
 
 $requestor = $fullname;
@@ -232,10 +231,10 @@ $message = "Assigned as authoriser";
 
 $ctime = date('Y-m-d H:i:s');
 
-$sql = "INSERT INTO generic_request (gen_id, gen_requestor, gen_name, gen_description, impact_analysis, req_justification, req_date) VALUES ('$gen_id', '$requestor', '$gen_name', '$gen_description', '$gen_impact_analysis', '$req_justification', '$ctime') ";
+$sql = "INSERT INTO procurement_req (proc_id, gen_requestor, gen_name, gen_description, impact_analysis, req_justification, req_date) VALUES ('$gen_id', '$requestor', '$gen_name', '$gen_description', '$gen_impact_analysis', '$req_justification', '$ctime') ";
 
 
-$sql1 = "INSERT INTO generic_auth (gen_id,  auth1_name, auth1_jobtitle, auth2_name, auth2_jobtitle, auth3_name, auth3_jobtitle, auth4_name, auth4_jobtitle, auth5_name, auth5_jobtitle, auth6_name, auth6_jobtitle, auth7_name, auth7_jobtitle, auth8_name, auth8_jobtitle, auth9_name, auth9_jobtitle, auth10_name, auth10_jobtitle, auth11_name, auth11_jobtitle, auth12_name, auth12_jobtitle, auth13_name, auth13_jobtitle, auth14_name, auth14_jobtitle, auth15_name, auth15_jobtitle, implementer_name, totalAuth, overal_status) VALUES ('$gen_id',  '$auth0', '$auth0JobTitle', '$auth1', '$auth1JobTitle', '$auth2', '$auth2JobTitle', '$auth3', '$auth3JobTitle', '$auth4', '$auth4JobTitle', '$auth5', '$auth5JobTitle', '$auth6', '$auth6JobTitle', '$auth7', '$auth7JobTitle', '$auth8', '$auth8JobTitle', '$auth9', '$auth9JobTitle', '$auth10', '$auth10JobTitle', '$auth11', '$auth11JobTitle', '$auth12', '$auth12JobTitle', '$auth13', '$auth13JobTitle', '$auth14', '$auth14JobTitle', '$implementer_name',  '$totalAuth', '1')";
+$sql1 = "INSERT INTO procurement_auth (proc_id,  auth1_name, auth1_jobtitle, auth2_name, auth2_jobtitle, auth3_name, auth3_jobtitle, auth4_name, auth4_jobtitle, auth5_name, auth5_jobtitle, auth6_name, auth6_jobtitle, auth7_name, auth7_jobtitle, auth8_name, auth8_jobtitle, auth9_name, auth9_jobtitle, auth10_name, auth10_jobtitle, auth11_name, auth11_jobtitle, auth12_name, auth12_jobtitle, auth13_name, auth13_jobtitle, auth14_name, auth14_jobtitle, auth15_name, auth15_jobtitle, implementer_name, totalAuth, overal_status) VALUES ('$gen_id',  '$auth0', '$auth0JobTitle', '$auth1', '$auth1JobTitle', '$auth2', '$auth2JobTitle', '$auth3', '$auth3JobTitle', '$auth4', '$auth4JobTitle', '$auth5', '$auth5JobTitle', '$auth6', '$auth6JobTitle', '$auth7', '$auth7JobTitle', '$auth8', '$auth8JobTitle', '$auth9', '$auth9JobTitle', '$auth10', '$auth10JobTitle', '$auth11', '$auth11JobTitle', '$auth12', '$auth12JobTitle', '$auth13', '$auth13JobTitle', '$auth14', '$auth14JobTitle', '$implementer_name',  '$totalAuth', '1')";
 
 // $sql3 = "INSERT INTO message_handle (msg_id, id, sender, receiver1, receiver2, receiver3, receiver4, receiver5, receiver6, receiver7, receiver8, receiver9, receiver10,  time_sent, mesage_detail, msg_status) VALUES ('', '$gen_id', '$requestor', '$auth1', '$auth2', '$auth3', '$auth4', '$auth5', '$auth6', '$auth7', 'implement1', 'implement2', 'implement3', NOW(), '$message', '0')";
 
@@ -268,7 +267,7 @@ $sql1 = "INSERT INTO generic_auth (gen_id,  auth1_name, auth1_jobtitle, auth2_na
                     // Image db insert sql
                     
                    
-                    $insert = $conn->query("INSERT INTO generic_uploads (gen_id, file_name, file_format, uploader) VALUES ('$gen_id', '$fileName', '$fileType', '$fullname')");
+                    $insert = $conn->query("INSERT INTO procurement_uploads (proc_id, file_name, file_format, uploader) VALUES ('$gen_id', '$fileName', '$fileType', '$fullname')");
 
                     if($insert  == TRUE){
                      
@@ -297,14 +296,14 @@ $sql1 = "INSERT INTO generic_auth (gen_id,  auth1_name, auth1_jobtitle, auth2_na
     }
  
     if ($insertReq === TRUE && $insertGenAuth === TRUE) {
-   // echo "New record created successfully with refNumber "."<br>".$refNumber;
 
         include 'genEmail.php';
+
 
 ?>
  <script type="text/javascript">
    window.location.href = "../frontend/dashboard.php";
- alert("Change Control sent");
+ alert("Procurement Request sent");
 
  </script>
 <?php
