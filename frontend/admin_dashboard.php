@@ -163,8 +163,12 @@
               <div class="card">
                 <div class="card-header card-header-tabs card-header-primary">
                   <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-                      <span class="nav-tabs-title">USERS</span>
+                  <div class="nav-tabs-wrapper">
+                      <span class="fa fa-users nav-tabs-title">  USERS</span>
+                      
+                    </div>
+                    <div class="nav-tabs-wrapper" style="float:right;">
+                      <span onclick="window.location.href='admin.php'" class="fa fa-plus nav-tabs-title"> ADD NEW</span>
                       
                     </div>
                   </div>

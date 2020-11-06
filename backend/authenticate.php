@@ -53,10 +53,10 @@ if ($stmt->num_rows > 0) {
         header('Location: ../frontend/dashboard.php');
         
     } else {
-        header('Location: login.php');
+        header('Location: ../frontend/Login/index.php?message=Password incorrect');
     }
 } else {
-    header('Location: login.php');
+    header('Location: ../frontend/Login/index.php?message=Username not found');
 }
 
 $stmt->close();
