@@ -124,7 +124,7 @@ error_reporting(0);
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
                   <div class="card-icon">
@@ -136,9 +136,24 @@ error_reporting(0);
                 <div class="card-footer">
                   <div class="stats">
                     <!-- <i class="material-icons">date_range</i> Last 24 Hours -->
-                    <div class="col-md-5" style="text-align:center;"><i class ="fa fa-plus-square"> </i> <a href="forms/leave_form.php">Leave Application</a></div>|
-                    <div class="col-md-5" style="text-align:center;"><i class ="fa fa-plus"> </i> <a href="forms/procurement_request.php">Procurement Request</a></div>|
-                    <div class="col-md-5" style="text-align:center;"><i class ="fa fa-plus-square-o"> </i> <a href="forms/generic_request.php">General Request</a></div>
+                    <div style="text-align:center;"><i class ="fa fa-plus-square"> </i> <a href="forms/leave_form.php">Leave Application</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">add_task</i>
+                  </div>
+                  <p class="card-category"> Add New</p>
+                  <p class="card-title">Request</p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <!-- <i class="material-icons">date_range</i> Last 24 Hours -->
+                    <div style="text-align:center;"><i class ="fa fa-plus"> </i> <a href="forms/procurement_request.php">Procurement Request</a></div>
                   </div>
                 </div>
               </div>
@@ -154,7 +169,8 @@ error_reporting(0);
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">update</i> Just Updated
+                    
+                  <div style="text-align:center;"><i class ="fa fa-plus-square-o"> </i> <a href="forms/generic_request.php">General Request</a></div>
                   </div>
                 </div>
               </div>

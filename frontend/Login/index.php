@@ -30,15 +30,18 @@
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100">
+		<div class="container-login100" style = "background-image: url(images/bg1.jpg); background-repeat: repeat;  background-opacity: 0.5; background-size: 100% 100%;">
 			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+				<div class="login100-form-title" style="background-image: url(images/bg.gif);">
 					<span class="login100-form-title-1">
 						Sign In
 					</span>
 				</div>
 
-				<form class="login100-form validate-form" action="../../backend/authenticate.php" method="POST">
+				<form class="login100-form validate-form" action="../../../backend/authenticate.php" method="POST">
+					<div>
+						<p  style="text-align: center; color: red; font: small-caption; font-style: italic; width: 100%;  margin-left: 50%;"><?php error_reporting(0); if($_GET['message']==NULL){} else {echo $_GET['message'];} ?></p>
+					</div>
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Username</span>
 						<input class="input100" type="text" name="username" placeholder="Enter username">
