@@ -28,9 +28,12 @@ include '../../backend/profile_control.php';
       while($row = $result->fetch_assoc()) {
          $requestor = $row["requestor"];
          $req_date = $row["req_time"];
-         $date = $row["employee_number"];
+         $grade = $row["grade"];
          $employee_number = $row["employee_number"];
-         $employee_number = $row["employee_number"];
+         $emp_address = $row["emp_address"];
+         $jobtitle = $row["jobtitle"];
+         $contact_name = $row["contact_name"];
+         $date_started = $row["date_started"];
          $req_justification = $row["req_justification"];
          $attachment = $row["attachment"];
          //$sender = $row["sender"];
@@ -198,7 +201,7 @@ include '../../backend/profile_control.php';
                   <a class="dropdown-item" href="#">Profile</a>
                   <a class="dropdown-item" href="#">Settings</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
+                  <a class="dropdown-item" href="../../backend/logout.php">Log out</a>
                 </div>
               </li>
             </ul>
@@ -209,73 +212,9 @@ include '../../backend/profile_control.php';
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">table_chart</i>
-                  </div>
-                  <p class="card-category">Reports</p>
-                  <h3 class="card-title">42350
-                    <small></small>
-                  </h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons text-danger">warning</i>
-                    <a href="javascript:;">Get More Space...</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-success card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">add_task</i>
-                  </div>
-                  <p class="card-category"> Add New</p>
-                  <p class="card-title">Request</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">date_range</i> Last 24 Hours
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-danger card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">comment</i>
-                  </div>
-                  <p class="card-category">Comments</p>
-                  <h3 class="card-title">75</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">local_offer</i> Tracked from Github
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
-                  <div class="card-icon">
-                    <i class="fa fa-warning"></i>
-                  </div>
-                  <p class="card-category">Overdue</p>
-                  <h3 class="card-title">+245</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">update</i> Just Updated
-                  </div>
-                </div>
-              </div>
-            </div>
+          <?php
+            include "../toptiles.php";
+            ?>
           </div>
           
           <div class="row">
@@ -309,28 +248,28 @@ include '../../backend/profile_control.php';
 
                             </td>
                             <td colspan="2">Date Logged: ..................................
-                            <?php  $dateSent1 = substr($dateSent,0,10); echo $dateSent1; ?>
+                            <?php  $req_date1 = substr($req_date,0,10); echo $req_date1; ?>
                                 
                               </td>
                           </tr>
                           <tr>
                              <td colspan="2">Requested by: .......................... 
                               <?php
-                                          echo $sender."TEst Name<br><small style=\"margin-left: 217px;\">(My Jobtile Here)</small>";
+                                          echo $requestor."<br><small style=\"margin-left: 217px;\">(".$jobtitle.")</small>";
                               ?>
                             </td>
                              <td colspan="2">Time Logged: ................................
-                             <?php  $timeSent1 = substr($dateSent,10,18); echo $timeSent1;   ?>
+                             <?php  $timeSent1 = substr($req_date,10,18); echo $timeSent1;   ?>
                                 
                               </td>
                           </tr>
                           <tr>
-                            <td>Employee Number : ...............</td>
-                            <td>Employee Grade : ...............</td>
-                            <td>Date Joined the Organisation : ...............</td>
+                            <td>Employee Number : ...............<?php echo $employee_number; ?></td>
+                            <td>Employee Grade : ...............<?php echo $grade; ?></td>
+                            <td>Date Joined the Organisation : ...............<?php echo $date_started; ?></td>
                           </tr>
                           <tr>
-                            <td colspan="2">Employee Department : ...............</td>
+                            <td colspan="2">Employee Department : ...............IT</td>
                             <td></td>
                           </tr>
                       </table>
@@ -344,18 +283,12 @@ include '../../backend/profile_control.php';
                           <tr>
                              <td colspan="4"><b>Address Whilst On Leave:</b> <br>
 
-                              <?php echo $gen_description;?>
+                              <?php echo $emp_address;?>
                              </td>
                           </tr>
                           <tr>
                              <td colspan="4"><b>Contact Person:</b> <br>
-                              <?php echo "Courage Barwe"." [
-Full Name	Jorge P Smith
-Gender	male
-Title	Mr.
-Race	White
-Birthday	4/1/1960
-Social Security Number	275-84-5445  ]<br><small style = \"margin-left: 30px;\">074454568225</small>" ; ?>
+                              <?php echo $contact_name." [".$emp_address."]" ; ?>
                              </td>
                           </tr>
                         </table>

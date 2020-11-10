@@ -102,66 +102,15 @@
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">table_chart</i>
-                  </div>
-                  <p class="card-category"><u>Reports</u></p>
-                  <h3 class="card-title">42350
-                  <small></small>
-                  </h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons text-danger">success</i>
-                    <a href="javascript:;">Total requests Generated</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-success card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">add_task</i>
-                  </div>
-                  <p class="card-category"> Add New</p>
-                  <p class="card-title">Request</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <!-- <i class="material-icons">date_range</i> Last 24 Hours -->
-                    <div class="col-md-5" style="text-align:center;"><i class ="fa fa-plus-square"> </i> <a href="forms/leave_form.php">Leave Application</a></div>|
-                    <div class="col-md-5" style="text-align:center;"><i class ="fa fa-plus"> </i> <a href="forms/procurement_request.php">Procurement Request</a></div>|
-                    <div class="col-md-5" style="text-align:center;"><i class ="fa fa-plus-square-o"> </i> <a href="forms/generic_request.php">General Request</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
-                  <div class="card-icon">
-                    <i class="fa fa-warning"></i>
-                  </div>
-                  <p class="card-category">Overdue</p>
-                  <h3 class="card-title">+245</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">update</i> Just Updated
-                  </div>
-                </div>
-              </div>
-            </div>
+           <?php
+           include "toptiles.php";
+           ?>
           </div>
           
           <div class="row">
             <div class=" col-md-12">
               <div class="card">
-                <div class="card-header card-header-tabs card-header-primary">
+                <div class="card-header card-header-tabs card-header-success">
                   <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                       <span class="fa fa-users nav-tabs-title">  USERS</span>

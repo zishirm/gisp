@@ -45,7 +45,7 @@
                                     </p>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="../backend/user_profile.php">View</a>
+                                    <a class="dropdown-item" href="../backend/user_profile.php?email=<?php echo $email; ?>">View</a>
                                     <a class="dropdown-item" href="#">Delete</a>
                                     <a class="dropdown-item" href="#">Make Admin</a>
                                     <a class="dropdown-item" href="#">Edit</a>
