@@ -214,13 +214,7 @@ if (!$email = $_GET['email']) {
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <div class="form-group">
-                          <label>About Me</label>
-                          <div class="form-group">
-                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                            <textarea class="form-control" rows="5" disabled></textarea >
-                          </div>
-                        </div>
+                        
                       </div>
                     </div>
                     <div class="clearfix"></div>
