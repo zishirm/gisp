@@ -1,4 +1,5 @@
 <?php 
+include "db_connect.php";
 include "profile_control.php";
 if (!$email = $_GET['email']) {
   //    $RequestCode ="gen29022020143303";
@@ -47,7 +48,7 @@ if (!$email = $_GET['email']) {
      
      <?php 
     include "../frontend/sidebar.php";
-    include "db_connect.php";
+    // include "db_connect.php";
      ?>
       
     </div>
@@ -110,7 +111,7 @@ if (!$email = $_GET['email']) {
                   <a class="dropdown-item" href="#">Profile</a>
                   <a class="dropdown-item" href="#">Settings</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
+                  <a class="dropdown-item" href="logout.php">Log out</a>
                 </div>
               </li>
             </ul>
@@ -130,7 +131,7 @@ if (!$email = $_GET['email']) {
                 <div class="card-body">
                   <form>
                   <?php 
-                   $fetchOne = "SELECT * FROM users WHERE username = '$uname'";
+                   $fetchOne = "SELECT * FROM users WHERE email = '$email'";
                    $myResult = mysqli_query($conn,$fetchOne);
 
                    // $fullname = "Clive Chiwara";
